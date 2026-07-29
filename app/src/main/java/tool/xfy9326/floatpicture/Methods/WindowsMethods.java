@@ -46,9 +46,8 @@ public class WindowsMethods {
         layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         layoutParams.format = PixelFormat.TRANSLUCENT;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            layoutParams.alpha = ((MainApplication) context.getApplicationContext()).getSafeWindowsAlpha();
-        }
+        // ★ 不再读取系统限制值，直接锁 1.0f（完全不透明）
+        layoutParams.alpha = 1.0f;
         return layoutParams;
     }
 
